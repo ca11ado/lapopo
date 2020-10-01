@@ -1,0 +1,27 @@
+{
+  "name": "lapopo",
+  "version": "1.0.0",
+  "description": "Poker Planning App",
+  "main": "webpack.babel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ca11ado/lapopo.git"
+  },
+  "keywords": [
+    "poker",
+    "planning"
+  ],
+  "author": "Anton Khimtsov, Igor Grammatchikov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ca11ado/lapopo/issues"
+  },
+  "homepage": "https://github.com/ca11ado/lapopo#readme",
+  "devDependencies": {
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.12"
+  }
+}
