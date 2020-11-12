@@ -3,11 +3,28 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/settings">Settings</router-link>
+    <h3 v-if="userName">Your name is: {{ userName }}</h3>
   </div>
   <router-view/>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  computed: {
+    userName(): string {
+      return this.$store.state.user.name;
+    },
+  },
+});
+</script>
+
 <style>
+html, body, #app {
+  height: 100%;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
