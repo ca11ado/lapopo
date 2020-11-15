@@ -6,14 +6,13 @@ Poker Planning
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Локальный запуск и горячая перезагрузка клиентской части проекта и API сервера
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
+в другом терминале
 ```
-npm run build
+npm run dev
 ```
 
 ### Run your unit tests
@@ -24,6 +23,16 @@ npm run test:unit
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Heroku
+Heroku по дефолту запускает по очередности 2 скрипта из файла package.json
+```
+npm run build
+```
+и
+```
+npm run start
 ```
 
 ### Customize configuration
