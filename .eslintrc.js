@@ -15,13 +15,14 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'import/prefer-default-export': 'off',
+    'camelcase': [2, { properties: 'never' }], // does not work??
     'no-param-reassign': [
       'error',
       {
-        'props': true,
-        'ignorePropertyModificationsFor': ['state'],
-      }
-    ]
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
   overrides: [
     {

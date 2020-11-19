@@ -17,7 +17,6 @@
 import { defineComponent } from 'vue';
 import { ActionTypes } from '@/store/action-types';
 import router from '@/router';
-// import * as userApi from '@/api/user';
 
 export default defineComponent({
   data() {

@@ -6,7 +6,7 @@ import { State } from '@/store/state';
 import { Mutations } from '@/store/mutations';
 import { ActionTypes } from '@/store/action-types';
 import { MutationTypes } from '@/store/mutation-types';
-import { set as setUser } from '@/api/user';
+import { set as setUser, get as getUser } from '@/api/user';
 
 type AugmentedActionContext = {
   commit<K extends keyof Mutations>(
@@ -23,7 +23,7 @@ export interface Actions {
 
 export const actions: ActionTree<State, State> & Actions = {
   async [ActionTypes.GET_USER]({ commit }) {
-    const user = { name: '' }; // todo await getUser();
+    const user = await getUser();
     commit(MutationTypes.SET_USER, user);
   },
   async [ActionTypes.SET_USER]({ commit }, userName) {

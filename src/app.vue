@@ -1,8 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/settings">Settings</router-link>
+    <router-link to="/">Home Page</router-link>
     <h3 v-if="userName">Your name is: {{ userName }}</h3>
   </div>
   <router-view/>
@@ -35,11 +33,15 @@ html, body, #app {
 
 #nav {
   padding: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin-right: 20px;
 }
 
 #nav a.router-link-exact-active {
