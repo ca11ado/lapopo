@@ -19,12 +19,22 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkNmae: "settings" */ '../views/settings.vue'),
   },
   {
+    path: '/pokers/:hash',
+    name: 'Poker',
+    component: () => import(/* webpackChunkName: "poker" */ '../views/poker.vue'),
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/about.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'Not Found',
+    component: () => import(/* webpackChunkName: "error" */ '../views/error.vue'),
   },
 ];
 
@@ -33,18 +43,21 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to) => {
   if (to.name === 'Login') {
-    next();
-  } else {
-    const { state: { user: { name: userName } } } = store;
-    const backRoute = to.name && routes.some(({ name }) => name === to.name)
-      ? String(to.name)
-      : '';
-
-    if (userName) next();
-    else next({ name: 'Login', query: { back: to.name ? backRoute : '' } });
+    return true;
+    // router.push(to);
   }
+  const { state: { user: { name: userName } } } = store;
+  const backRoute = !userName && to.name && routes.some(({ name }) => name === to.name)
+    ? String(to.fullPath)
+    : '';
+
+  if (userName) {
+    return true;
+  }
+
+  return router.push({ name: 'Login', query: { back: backRoute } });
 });
 
 export default router;

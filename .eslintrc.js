@@ -15,7 +15,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'import/prefer-default-export': 'off',
-    'camelcase': [2, { properties: 'never' }], // does not work??
+    '@typescript-eslint/camelcase': 'off',
     'no-param-reassign': [
       'error',
       {

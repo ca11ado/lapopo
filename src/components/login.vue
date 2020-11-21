@@ -30,7 +30,7 @@ export default defineComponent({
       if (this.$store.state.user.name) {
         const backPage = new URL(String(window.location)).searchParams.get('back');
         if (backPage) {
-          router.push({ name: backPage });
+          router.push({ path: backPage });
         }
       }
     },

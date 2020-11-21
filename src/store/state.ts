@@ -2,6 +2,8 @@ export const state = {
   user: {
     name: '',
   },
+  poker: {
+  },
 };
 
 export type State = typeof state;
