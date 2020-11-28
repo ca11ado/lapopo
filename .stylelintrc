@@ -1,0 +1,19 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": ["global"]
+    }],
+    "no-empty-source": null,
+    "declaration-no-important": [true, { "severity": "warning" }],
+    "max-nesting-depth": [2, { "severity": "warning" }],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": [
+          "/^[mdvx]-/"
+        ]
+      }
+    ]
+  }
+}

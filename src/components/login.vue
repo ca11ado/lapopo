@@ -2,13 +2,8 @@
   <div class="login">
     <h1>Please, enter your name</h1>
     <form @submit.prevent="submitName">
-      <input
-        v-model="userName"
-        class="login__input"
-      />
-      <button
-        class="login__button"
-      >Ok</button>
+      <input v-model="userName" class="login__input" />
+      <button class="login__button">Ok</button>
     </form>
   </div>
 </template>
