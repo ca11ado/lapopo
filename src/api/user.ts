@@ -2,18 +2,16 @@ import axios from 'axios';
 import { User } from '@/api/types';
 
 const mockedPokerData = [
-  // eslint-disable-next-line
-  { hash: 'some-random-string-1', is_owner: true },
-  // eslint-disable-next-line
-  { hash: 'some-random-string-2', is_owner: true },
-  { hash: 'some-random-string-3' },
-  { hash: 'some-random-string-4' },
-  { hash: 'some-random-string-5' },
-  { hash: 'some-random-string-6' },
-  { hash: 'some-random-string-7' },
-  { hash: 'some-random-string-8' },
-  { hash: 'some-random-string-9' },
-  { hash: 'some-random-string-10' },
+  { name: 'Owner for this 1', hash: 'some-random-string-1', is_owner: true },
+  { name: 'Owner for this 2', hash: 'some-random-string-2', is_owner: true },
+  { name: 'Participian 1', hash: 'some-random-string-3' },
+  { name: 'Participian 2', hash: 'some-random-string-4' },
+  { name: 'Participian 3', hash: 'some-random-string-5' },
+  { name: 'Participian 4', hash: 'some-random-string-6' },
+  { name: 'Participian 5', hash: 'some-random-string-7' },
+  { name: 'Participian 6', hash: 'some-random-string-8' },
+  { name: 'Participian 7', hash: 'some-random-string-9' },
+  { name: 'Participian 8', hash: 'some-random-string-10' },
 ];
 const mockedUser: User = { name: 't0s', pokers: mockedPokerData };
 
@@ -22,8 +20,8 @@ const mockedUser: User = { name: 't0s', pokers: mockedPokerData };
  */
 export const get = () => axios
   .get('/api/user/')
-  .then(({ data }): User => data);
-  // .catch((): User => mockedUser);
+  .then(({ data }): User => data)
+  .catch((): User => mockedUser);
 
 /**
  * Set user name

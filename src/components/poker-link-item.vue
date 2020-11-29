@@ -1,6 +1,6 @@
 <template>
   <ul class="root">
-    <li><a :href="url">{{ url }}</a></li>
+    <li><router-link :to="url">{{ url }}</router-link></li>
   </ul>
 </template>
 
