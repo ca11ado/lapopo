@@ -1,7 +1,9 @@
 <template>
   <div class="root">
     <h1><slot name="header" /></h1>
-    <poker-link-item v-for="({ hash }) in pokers" :key="hash" :url="`/pokers/${hash}`" />
+    <ul>
+      <poker-link-item v-for="({ hash }) in pokers" :key="hash" :url="`/pokers/${hash}`" />
+    </ul>
   </div>
 </template>
 

@@ -1,7 +1,5 @@
 <template>
-  <ul class="root">
-    <li><router-link :to="url">{{ url }}</router-link></li>
-  </ul>
+  <li class="root"><router-link :to="url">{{ url }}</router-link></li>
 </template>
 
 <script lang="ts">
@@ -16,7 +14,4 @@ export default {
 </script>
 
 <style scoped>
-  .root {
-    display: block;
-  }
 </style>

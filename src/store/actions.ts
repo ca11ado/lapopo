@@ -27,7 +27,9 @@ export interface Actions {
 }
 
 export const actions: ActionTree<State, State> & Actions = {
-  async [ActionTypes.GET_USER]({ commit }) {
+  async [ActionTypes.GET_USER]({ commit, state }) {
+    if (state.user && state.user.name) return;
+
     const user = await getUser();
     commit(MutationTypes.SET_USER, user);
   },

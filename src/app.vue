@@ -1,7 +1,12 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home Page</router-link>
-    <h3 v-if="userName">Your name is: {{ userName }}</h3>
+  <div id="nav" class="container">
+    <router-link to="/">
+      <h5>Home Page</h5>
+    </router-link>
+    <h5 v-if="$store.state.poker && $store.state.poker.hash === $route.params.hash">
+      Poker: {{ $store.state.poker.name || '' }}
+    </h5>
+    <h5 v-if="userName">Your name is: {{ userName }}</h5>
   </div>
   <router-view/>
 </template>
@@ -10,6 +15,9 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  created() {
+    console.log('%c custom log', 'color:red;', this.$route, this.$store.state.poker);
+  },
   computed: {
     userName(): string {
       return this.$store.state.user.name;
@@ -19,7 +27,9 @@ export default defineComponent({
 </script>
 
 <style>
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
 }
 
@@ -34,12 +44,11 @@ html, body, #app {
 #nav {
   padding: 30px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
 #nav a {
-  font-weight: bold;
   color: #2c3e50;
   margin-right: 20px;
 }
