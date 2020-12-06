@@ -1,5 +1,6 @@
 const Koa = require ('koa');
 const config = require('./config');
+require('dotenv').config({ path: '.env.local' });
 
 const middleware = require('./middleware');
 
