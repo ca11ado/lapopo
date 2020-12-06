@@ -11,9 +11,9 @@ module.exports = (app) => {
   app.use(session({
     key: 'sid',
     store: new Redis({
-      host: config.heroku.host,
-      port: config.heroku.port,
-      password: process.env.PASSWORD,
+      host: config.heroku[process.env.NODE_ENV].host,
+      port: config.heroku[process.env.NODE_ENV].port,
+      password: process.env.NODE_ENV === 'production' ? process.env.PASSWORD : '',
       serialize: (session) => {
         return JSON.stringify({
           name: session.name

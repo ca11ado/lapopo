@@ -1,9 +1,9 @@
 const Redis = require("koa-redis");
 const config = require('../config');
 const redis = new Redis({
-  host: config.heroku.host,
-  port: config.heroku.port,
-  password: process.env.PASSWORD,
+  host: config.heroku[process.env.NODE_ENV].host,
+  port: config.heroku[process.env.NODE_ENV].port,
+  password: process.env.NODE_ENV === 'production' ? process.env.PASSWORD : '',
 });
 
 async function register (ctx) {
