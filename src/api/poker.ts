@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { apiClient } from '@/api';
 import { Poker } from '@/api/types';
 
 const mockedTask1 = {
@@ -41,7 +41,7 @@ const mockedPoker: Poker = {
 /**
  * Get user info from server
  */
-export const get = (hash: string) => axios
+export const get = (hash: string) => apiClient
   .get(`/api/pokers/${hash}`)
   .then(({ data }): Poker => data)
   .catch(() => mockedPoker);
