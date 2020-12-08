@@ -18,6 +18,11 @@ npm run serve
 ```
 Запуск серверной части
 
+В файлик .env.local положить следующие переменные окружения
+```
+SECRET_KEY="..."
+```
+
 ```angular2html
 redis-server
 ```
@@ -36,8 +41,8 @@ npm run test:unit
 npm run lint
 ```
 
-### Heroku
-Heroku по дефолту запускает по очередности 2 скрипта из файла package.json
+### Production
+По дефолту запускает по очередности 2 скрипта из файла package.json
 ```
 npm run build
 ```
@@ -45,9 +50,3 @@ npm run build
 ```
 npm run start
 ```
-
-###Production
-`https://lapopo-v1.herokuapp.com/`
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
