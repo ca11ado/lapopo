@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { apiClient } from '@/api';
 import { User } from '@/api/types';
 
 const mockedPokerData = [
@@ -18,7 +18,7 @@ const mockedUser: User = { name: 't0s', pokers: mockedPokerData };
 /**
  * Get user info from server
  */
-export const get = () => axios
+export const get = () => apiClient
   .get('/api/user/')
   .then(({ data }): User => data)
   .catch((): User => mockedUser);
@@ -26,7 +26,7 @@ export const get = () => axios
 /**
  * Set user name
  */
-export const set = (name: string) => axios
+export const set = (name: string) => apiClient
   .post('/api/user/', { name, pokers: [] })
   .then(({ data }): User => data)
   .catch((): User => mockedUser); // todo mock until LAPOPO-5

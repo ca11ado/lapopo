@@ -39,4 +39,5 @@ module.exports = {
   plugins: [
     'jest',
   ],
+  ignorePatterns: ['/server'],
 };
