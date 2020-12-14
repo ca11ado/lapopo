@@ -20,13 +20,11 @@ const mockedUser: User = { name: 't0s', pokers: mockedPokerData };
  */
 export const get = () => apiClient
   .get('/api/user/')
-  .then(({ data }): User => data)
-  .catch((): User => mockedUser);
+  .then(({ data }): User => data);
 
 /**
  * Set user name
  */
 export const set = (name: string) => apiClient
   .post('/api/user/', { name, pokers: [] })
-  .then(({ data }): User => data)
-  .catch((): User => mockedUser); // todo mock until LAPOPO-5
+  .then(({ data }): User => data);

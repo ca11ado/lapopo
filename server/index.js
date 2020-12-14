@@ -6,11 +6,9 @@ const middleware = require('./middleware');
 const app = new Koa();
 const port = process.env.VUE_APP_API_PORT;
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? `http://${process.env.LAPOPO_CLIENT_HOST}:${process.env.LAPOPO_CLIENT_PORT}`
-    : '*'
+  origin: `http://${process.env.LAPOPO_CLIENT_HOST}:${process.env.LAPOPO_CLIENT_PORT}`,
+  credentials: true,
 };
-
 app.use(cors(corsOptions));
 
 middleware(app);
