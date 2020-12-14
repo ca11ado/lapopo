@@ -22,10 +22,12 @@ async function register (ctx) {
       ctx.throw(409, `name ${name} already exist`);
     } else {
       ctx.session.name = name;
+      ctx.body = {'name': name};
       ctx.status = 201;
     }
   } else {
     ctx.session.name = name;
+    ctx.body = {'name': name};
     ctx.status = 201;
   }
 }
