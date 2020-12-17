@@ -10,9 +10,7 @@ module.exports = (app) => {
   app.use(session({
     key: 'sid',
     store: new Redis({
-      host: process.env.LAPOPO_REDIS_HOST,
-      port: process.env.LAPOPO_REDIS_PORT,
-      password: process.env.LAPOPO_REDIS_PASSWORD,
+      url: process.env.REDIS_URL,
       serialize: (session) => {
         return JSON.stringify({
           name: session.name
