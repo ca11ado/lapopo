@@ -1,9 +1,14 @@
 import axios from 'axios';
 
-const baseURL = `http://${process.env.VUE_APP_API_HOST}:${process.env.VUE_APP_API_PORT}`;
-console.log(baseURL);
+let baseURL;
+
+if (process.env.NODE_ENV === 'production') {
+  baseURL = '/';
+} else {
+  baseURL = `http://${process.env.VUE_APP_API_HOST}:${process.env.VUE_APP_API_PORT}`;
+}
 
 export const apiClient = axios.create({
-  withCredentials: true,
   baseURL,
+  withCredentials: true,
 });
