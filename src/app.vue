@@ -15,9 +15,6 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  created() {
-    console.log('%c custom log', 'color:red;', this.$route, this.$store.state.poker);
-  },
   computed: {
     userName(): string {
       return this.$store.state.user.name;

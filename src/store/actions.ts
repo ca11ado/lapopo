@@ -30,8 +30,12 @@ export const actions: ActionTree<State, State> & Actions = {
   async [ActionTypes.GET_USER]({ commit, state }) {
     if (state.user && state.user.name) return;
 
-    const user = await getUser();
-    commit(MutationTypes.SET_USER, user);
+    try {
+      const user = await getUser();
+      commit(MutationTypes.SET_USER, user);
+    } catch (e) {
+      console.log(`GLOBAL ERROR [${ActionTypes.GET_POKER}]: ${e}`);
+    }
   },
   async [ActionTypes.SET_USER]({ commit }, userName) {
     try {

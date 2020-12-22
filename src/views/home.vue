@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts">
+import get from 'lodash/get';
 import { defineComponent } from 'vue';
 import CreateButton from '@/components/create-button.vue';
 import PokerLinkList from '@/components/poker-link-list.vue';
@@ -35,7 +36,7 @@ export default defineComponent({
       return this.$store.state.user;
     },
     pokers() {
-      return this.$store.state.user ? this.$store.state.user.pokers : [];
+      return get(this.$store, 'state.user.pokers', []);
     },
   },
 });
