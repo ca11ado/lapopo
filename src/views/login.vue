@@ -21,7 +21,7 @@ export default defineComponent({
     };
   },
   async created() {
-    if (!this.name) {
+    if (!this.userName) {
       await this.$store.dispatch(ActionTypes.GET_USER);
       if (this.$store.state.user.name) {
         const backPage = new URL(String(window.location)).searchParams.get('back');

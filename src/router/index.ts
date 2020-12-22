@@ -1,5 +1,6 @@
 import store from '@/store';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { ActionTypes } from '@/store/action-types';
 import Home from '../views/home.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -48,6 +49,8 @@ router.beforeEach(async (to) => {
     return true;
     // router.push(to);
   }
+
+  await store.dispatch(ActionTypes.GET_USER);
   const { state: { user: { name: userName } } } = store;
   const backRoute = !userName && to.name && routes.some(({ name }) => name === to.name)
     ? String(to.fullPath)

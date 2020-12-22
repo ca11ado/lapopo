@@ -34,6 +34,9 @@ export default defineComponent({
     name(): string {
       return this.userName.trim();
     },
+    stateUserName() {
+      return this.$store.state.user.name;
+    },
   },
 });
 </script>
