@@ -1,16 +1,19 @@
 <template>
   <div>
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row">
         <div class="col-8">
-          <poker-table class="m-5" :members="poker.members" />
-          <story-points :items="poker.story_points" />
+          <poker-table
+            class="d-flex justify-content-start"
+            :members="poker.members"
+          />
+          <story-points
+            class="d-flex justify-content-start mt-5"
+            :items="poker.story_points"
+          />
         </div>
         <div class="col-4">
-          <div>
-            <h1>Tasks List</h1>
-            <tasks :items="poker.tasks_list" />
-          </div>
+          <tasks :items="poker.tasks_list" />
         </div>
       </div>
     </div>
