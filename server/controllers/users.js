@@ -1,9 +1,5 @@
 const Redis = require("koa-redis");
-const redis = new Redis({
-  host: process.env.LAPOPO_REDIS_HOST,
-  port: process.env.LAPOPO_REDIS_PORT,
-  password: process.env.LAPOPO_REDIS_PASSWORD,
-});
+const redis = new Redis({url: process.env.REDIS_URL});
 
 async function register (ctx) {
   const { name } = ctx.request.body;
