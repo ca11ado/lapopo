@@ -3,12 +3,12 @@
 # Automatically adds branch name and branch description to every commit message.
 # Modified from the gist here https://gist.github.com/bartoszmajsak/1396344
 #
-GIT_DIR=.git
+GIT_DIR="${PWD}/.git"
 
 RED='\033[0;31m'
 NORMAL='\033[0m'
-if [ ! -d "$GOPATH" ]; then
-  echo -e "${RED}ERROR: check your \$GOPATH variable.${NORMAL} \$GOPATH=${GOPATH}"
+if [ ! -d "$GIT_DIR" ]; then
+  echo -e "${RED}ERROR: does not find path to git folder"
 fi
 
 # This way you can customize which branches should be skipped when
@@ -32,3 +32,4 @@ BRANCH_IN_COMMIT=$(grep -c "\[$BRANCH_NAME\]" $GIT_DIR/COMMIT_EDITMSG)
 if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]] && ! [[ $BRANCH_REBASED -ge 1 ]]; then
   sed -i.bak -e "1s|^|[$BRANCH_NAME] |" "$GIT_DIR/COMMIT_EDITMSG"
 fi
+

@@ -2,12 +2,12 @@
   <div class="card-group">
     <div
       class="card text-white bg-dark"
+      v-for="({ value, role }, index) in items"
       :class="{
         active: role === 'owner',
         ['mr-1']: index === 0,
         ['mx-1']: index !== 0,
       }"
-      v-for="({ value }, index) in items"
       :key="`card-${value}`"
     >
       <div class="card-body">

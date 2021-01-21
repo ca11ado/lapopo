@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col-8">
           <poker-table
+            v-if="poker.members"
             class="d-flex justify-content-start"
             :members="poker.members"
           />
@@ -39,8 +40,12 @@ export default defineComponent({
       return this.$store.state.poker;
     },
   },
-  created() {
-    this.$store.dispatch(ActionTypes.GET_POKER, this.$route.params.hash);
+  async created() {
+    try {
+      await this.$store.dispatch(ActionTypes.GET_POKER, this.$route.params.hash);
+    } catch (e) {
+      this.$router.push('/not_found_page');
+    }
   },
 });
 </script>
