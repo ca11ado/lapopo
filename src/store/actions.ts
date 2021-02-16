@@ -32,6 +32,7 @@ export const actions: ActionTree<State, State> & Actions = {
 
     try {
       const user = await getUser();
+      console.log('%c custom log', 'color:red;', 'action user', user);
       commit(MutationTypes.SET_USER, user);
     } catch (e) {
       console.log(`GLOBAL ERROR [${ActionTypes.GET_POKER}]: ${e}`);
@@ -39,7 +40,8 @@ export const actions: ActionTree<State, State> & Actions = {
   },
   async [ActionTypes.SET_USER]({ commit }, userName) {
     try {
-      const user = await setUser(userName);
+      await setUser(userName);
+      const user = await getUser(); // todo remove, when backend will return user in "setUser"
       commit(MutationTypes.SET_USER, user);
     } catch (e) {
       console.log(`GLOBAL ERROR [${ActionTypes.SET_USER}]: ${e}`);
@@ -51,6 +53,7 @@ export const actions: ActionTree<State, State> & Actions = {
       commit(MutationTypes.SET_POKER, poker);
     } catch (e) {
       console.log(`GLOBAL ERROR [${ActionTypes.GET_POKER}]: ${e}`);
+      throw Error('Page does not exists');
     }
   },
 };

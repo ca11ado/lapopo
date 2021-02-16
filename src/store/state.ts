@@ -1,7 +1,12 @@
+import { User } from '@/api/types';
+
+const user: User = {
+  name: '',
+  pokers: [],
+};
+
 export const state = {
-  user: {
-    name: '',
-  },
+  user,
   poker: {
   },
 };

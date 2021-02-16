@@ -3,7 +3,7 @@
     <router-link to="/">
       <h5>Home Page</h5>
     </router-link>
-    <h5 v-if="$store.state.poker && $store.state.poker.hash === $route.params.hash">
+    <h5 v-if="isPokerNameShown">
       Poker: {{ $store.state.poker.name || '' }}
     </h5>
     <h5 v-if="userName">Your name is: {{ userName }}</h5>
@@ -18,6 +18,11 @@ export default defineComponent({
   computed: {
     userName(): string {
       return this.$store.state.user.name;
+    },
+    isPokerNameShown() {
+      return this.$store.state.poker
+        && this.$store.state.poker.hash === this.$route.params.hash
+        && this.$store.state.poker.name;
     },
   },
 });

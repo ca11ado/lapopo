@@ -2,6 +2,7 @@ import { apiClient } from '@/api';
 import flow from 'lodash/fp/flow';
 import find from 'lodash/fp/find';
 import assign from 'lodash/fp/assign';
+import thru from 'lodash/fp/thru';
 import { Poker } from '@/api/types';
 
 const mockedTask1 = {
@@ -76,5 +77,8 @@ export const get = (hash: string) => apiClient
   .then(({ data }): Poker => data)
   .catch(() => flow(
     find(({ hash: mockedHash }) => hash === mockedHash),
-    assign(mockedPoker),
+    thru((mockedPokerListItem) => {
+      if (!mockedPokerListItem) throw Error('Nothing found');
+      return mockedPoker;
+    }),
   )(mockedPokersList));
